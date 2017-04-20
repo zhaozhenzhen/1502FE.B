@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{font:12px/1.5 Tahoma;}
+        #outer{width:500px;margin:0 auto;}
+        #outer div{border:2px solid #ccc;padding:10px;margin-bottom:10px;text-indent:2em;cursor:pointer;}
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div><strong>天气</strong>北京的天气能看到一次蓝天白云是多么难得的一件事</div>
+    <div>只有在真正“清醒”的那一刻，才明白真正怀念的那个转角</div>
+    <div><strong>真的平静不是远离城市的喧嚣，而是在心中修篱种橘</div>
+    <div>余香可嚼</div>
+</div>
+<script>
+    var div=document.getElementById('outer').getElementsByTagName('div');
+    for(var i=0;i<div.length;i++){
+        div[i].onclick=function(){
+            alert(this.innerHTML);
+        }
+    }
+</script>
+</body>
+</html>

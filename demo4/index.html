@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标进入改变样式，鼠标移除恢复样式</title>
+    <style>
+        body{
+            color:#fff;
+            font:12px/1.5 Tahoma;
+        }
+        #box{
+            width:300px;
+            height:300px;
+            margin:0 auto;
+            padding:10px;
+            background:greenyellow;
+            border:5px solid indianred;
+            cursor:crosshair;
+        }
+        #box.hover{
+            color:red;
+            background:#f0f0f0;
+            border:10px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">鼠标进入改变样式，鼠标移除恢复样式</div>
+<script>
+    var box=document.getElementById('box');
+        box.onmouseover =function(){
+            box.className='hover'
+        }
+        box.onmouseout =function(){
+            box.className='';
+        }
+</script>
+</body>
+</html>

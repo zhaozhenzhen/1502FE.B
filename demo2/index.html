@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width:630px;
+            height:200px;
+            margin-top: 50px;
+        }
+           #box div{
+                width:200px;
+                height: 200px;
+                background: salmon;
+                float:left;
+                margin: 0 5px
+            }
+    </style>
+</head>
+<body>
+<button id="btn">点击</button>
+<div id="box" flag>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+    <script>
+        var box=document.getElementById('box'),
+            divS=box.getElementsByTagName('div'),
+            btn=document.getElementById('btn');
+        console.log(divS);
+        btn.onclick=function() {
+            for (var i = 0; i < divS.length; i++) {
+                    divS[i].style.background = 'green'
+                }
+            }
+
+
+
+    </script>
+</body>
+</html>

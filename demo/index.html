@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #newbox{
+            width: 200px;
+            height: 200px;
+            background: greenyellow;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <button>变宽</button>
+    <button>变高</button>
+    <button>变色</button>
+    <button>隐藏</button>
+    <button>重置</button>
+    <div id="newbox"></div>
+</div>
+<script>
+    var btn=document.getElementsByTagName("button"),
+        div1=document.getElementById('newbox'),
+        styL=['width','height','background','display','display'],
+        coloR=['300px','400px','red','none','block'];
+    console.log(div1);
+    for(var i=0;i<btn.length;i++){
+        btn[i].index=i;
+        btn[i].onclick=function(){
+//            div1.style.cssText="";
+            console.log(this.index);
+            div1.style[styL[this.index]]=coloR[this.index];
+        }
+    }
+
+</script>
+</body>
+</html>
