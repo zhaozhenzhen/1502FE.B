@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,ol{
+            list-style: none;
+        }
+        #ourwe{
+            /*width:940px;*/
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: auto;
+        }
+        #uls1{
+            /*width: 900px;*/
+            height: 40px;
+            line-height: 40px;
+            background: pink;
+            display: -webkit-flex;
+            margin: auto;
+            text-align: center;
+        }
+        li{
+            width: 300px
+        }
+        .on{
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<div id="ourwe">
+    <ul id="uls1">
+        <li class="on">首页</li>
+        <li>列表页</li>
+        <li>登录页</li>
+    </ul>
+    <div id="box">
+        <ul>
+            <li>周六休息</li>
+            <li>周六休息</li>
+            <li>周六休息</li>
+            <li>周六休息</li>
+            <li>周六休息</li>
+            <li>周六休息</li>
+        </ul>
+        <ul>
+            <li>美好的一天</li>
+            <li>美好的一天</li>
+            <li>美好的一天</li>
+            <li>美好的一天</li>
+            <li>美好的一天</li>
+            <li>美好的一天</li>
+        </ul>
+        <ul>
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+            <li>hello</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var uls1=document.getElementById('uls1').getElementsByTagName('li'),
+        box=document.getElementById('box').getElementsByTagName('ul');
+    for(var i=0;i<uls1.length;i++){
+        uls1[i].index=i;
+        uls1[i].onmouseover=function(){
+            for(var j=0;j<box.length;j++){
+                uls1[j].className='';
+                box[j].style.display='none';
+            }
+            box[this.index].style.display='block';
+            this.className='on';
+
+
+        }
+    }
+</script>
+</body>
+</html>

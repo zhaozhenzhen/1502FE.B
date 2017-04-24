@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *,a,ul{
+            margin:0;
+            padding:0;
+            text-decoration: none;
+            list-style: none
+        }
+        #box{
+            width: 300px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            background: #ccc;
+            position: relative;
+        }
+        #box p {
+            height: 40px;
+            line-height: 40px;
+            background: #eee;
+            padding-left: 10px;
+        }
+        #top{
+            border: 6px solid transparent;
+            border-top-color: #000;
+            position: absolute;
+            top: 20px;
+            right: 10px;
+        }
+        #box ul{
+            border-top:1px solid #DEE3E6;
+        }
+        #box ul li{
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+        }
+        #box ul li:hover{
+            background:red;
+        }
+        #box a {
+            color: #666
+        }
+        .on{
+            background: #666
+        }
+        #box p .open{
+            background-position:180px -12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>播放列表... <span id="top"></span></p>
+        <ul>
+            <li><a href="javascript:;">安静--周杰伦</a></li>
+            <li><a href="#">黑色幽默--周杰伦</a></li>
+            <li><a href="#">稻香--周杰伦</a></li>
+            <li><a href="#">青花瓷--周杰林</a></li>
+            <li><a href="#">双节棍--周杰伦</a></li>
+            <li><a href="#">自导自演--周杰伦</a></li>
+        </ul>
+    </div>
+    <script>
+        var  uls =document.getElementsByTagName('ul')[0];
+        var tops=document.getElementsByTagName('p')[0];
+        console.log(uls);
+        tops.onclick=function(){
+            var newS=uls.style,ps=tops.style;
+            if(newS.display=="block"||ps.display=='open'){
+                uls.style.display='none';
+                tops.className='block';
+            }else{
+                uls.style.display='block';
+                tops.className='';
+            }
+        }
+    </script>
+</body>
+</html>
