@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var textf=document.getElementsByTagName('input'),
+				spans=document.getElementsByTagName('span')[0];
+				console.log(spans)
+				textf[2].onclick=function(){
+					(textf[0].value == "" || textf[1].value == "") ?
+							alert("请输入数字！") :
+					(spans.innerHTML = Math.max(textf[0].value, textf[1].value)) ;
+				}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" class="textf" />
+	<strong>vs</strong>
+	<input type="text" class="textf" />
+	<input type="button" value="最大的数是 &raquo;" class="btn" />
+	<span>？</span>
+</body>
+</html>
