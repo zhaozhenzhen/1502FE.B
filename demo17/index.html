@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 30px;
+			height:30px;
+			background: skyblue;
+			float:left;
+			margin:5px;
+		}
+		#box:nth-child(2){
+			background: pink;
+		}
+		#box:last-child{
+			background: orange;
+		}
+		#box span{
+			width: 10px;
+			height:10px;
+			display:block;
+			margin: 10px auto;
+		}
+	</style>
+	<script>
+	window.onload=function(){
+		var wrap=document.getElementById('wrap'),
+			divs=wrap.getElementsByTagName('div'),
+			body=document.getElementsByTagName('body')[0],
+			span=document.getElementsByTagName('span');
+			array=['green','#0f0','blue'];
+		console.log(span)
+		for(var i=0;i<divs.length;i++){
+			divs[i].index=i;
+			divs[i].onclick=function(){
+				for(var j=0;j<array.length;j++){
+					body.style.background=array[this.index];
+			}
+			for(var k=0;k<span.length;k++){
+				span[k].style.background=''
+			}
+			span[this.index].style.background='#fff'
+		}
+	}
+
+}
+		
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="box">
+			<span></span>
+		</div>
+		<div id="box">
+			<span></span>
+		</div>
+		<div id="box">
+			<span></span>
+		</div>
+	</div>
+	
+</body>
+</html>
