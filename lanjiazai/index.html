@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#lazy{
+			width:800px;
+			margin:50px auto;
+		}
+		img{
+			height:500px;
+			width:500px;
+			display:block;
+			background:url(images/loading.gif)no-repeat center;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="lazy">
+		<img src="images/1.jpg" alt="">
+		<img data-src="images/2.jpg" src="images/pixel.gif"/>
+		<img data-src="images/3.jpg" src="images/pixel.gif"/>
+		<img data-src="images/4.jpg" src="images/pixel.gif"/>
+		<img data-src="images/5.png" src="images/pixel.gif"/>
+		<img data-src="images/6.jpg" src="images/pixel.gif"/>
+		<img data-src="images/2.jpg" src="images/pixel.gif"/>
+		<img data-src="images/3.jpg" src="images/pixel.gif"/>
+		<img data-src="images/4.jpg" src="images/pixel.gif"/>
+		<img data-src="images/5.png" src="images/pixel.gif"/>
+		<img data-src="images/6.jpg" src="images/pixel.gif"/>
+	</div>
+	<script src=js/index.js></script>
+	<script>
+		var lazyloading= lazy({
+			id:"lazy",
+			lazyTime:1000,
+			lazyRange:100
+		})
+	</script>
+</body>
+</html>
