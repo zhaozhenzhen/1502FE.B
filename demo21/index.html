@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			list-style-type:none;
+		}
+		#search .sub li.hover{
+			background:pink;
+			width:300px;
+			display:inline-block;
+		}	
+	</style>
+</head>
+<body>
+	<div id="search">
+		<div class="box">
+			<form>
+			<span class="select">请选择城市</span>
+			<a href="javascript:;">搜索</a>
+			</form>
+		</div>
+		<ul class="sub">
+			<li>焦作</li>
+			<li>郑州</li>
+			<li>洛阳</li>
+			<li>开封</li>
+			<li>新乡</li>
+			<li>濮阳</li>
+			<li>南阳</li>
+		</ul>
+	</div>
+<script>
+	var spans=document.getElementsByTagName('span')[0],
+		uls=document.getElementsByTagName('ul')[0],
+		lis=uls.getElementsByTagName('li');
+		spans.onclick=function(event){
+			uls.style.display=uls.style.display=='block'?'none':'block';
+			(event || window.event).cancelBubble=true
+		}
+		for(var i=0;i<lis.length;i++){
+			lis[i].onmouseover=function(){
+				this.className='hover'
+			}
+			lis[i].onmouseout=function(){
+				this.className=''
+			}
+			lis[i].onclick=function(){
+				spans.innerHTML=this.innerHTML
+			}
+			}
+			document.onclick=function(){
+				uls.style.display='none';			
+		}
+</script>
+</body>
+</html>

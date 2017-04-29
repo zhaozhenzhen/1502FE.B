@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="0">
+</body>
+<script>
+	var btn=document.getElementsByTagName('input')[0],
+		count=0
+		btn.onclick=function(){
+			btn.value=++count;
+			alert(count)
+		}
+
+</script>
+</html>

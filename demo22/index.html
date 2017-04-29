@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width:200px;
+			height:200px;
+			background:red;
+			margin:50px auto;
+			color:#fff;
+			text-align: center;
+			line-height: 200px;
+			font-size: 22px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		一闪一闪亮晶晶
+	</div>
+	<script>
+		var box=document.getElementById('box');
+			box.onclick=function(){
+				var i=0;
+				clearInterval(timer);
+				var timer=setInterval(function(){
+					if(i++%2){
+						box.style.display='none'
+					}else{
+						box.style.display='block'
+					}
+				},100)
+			}
+	</script>
+</body>
+</html>
