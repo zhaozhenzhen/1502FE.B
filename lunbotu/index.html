@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	ul{
+		list-style: none;
+	}
+		#my{
+			width:500px;
+			height:200px;
+			border:2px solid pink;
+			overflow: hidden;
+			position: relative;
+			margin:50px auto;
+		}
+		.uls{
+			position: absolute;
+		}
+		.uls li {
+			width:500px;
+			height:200px;
+			float:left;
+		}
+		.uls li img{
+			width:500px;
+			height:200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="my">
+		<ul class="uls">
+			<li><img src="img/6.jpg" alt=""></li>
+			<li><img src="img/8.jpg" alt=""></li>
+			<li><img src="img/3.jpg" alt=""></li>
+			<li><img src="img/9.jpg" alt=""></li>
+			<li><img src="img/5.jpg" alt=""></li>
+		</ul>
+	</div>
+	<script>
+     	function init(){
+     		this.uls=document.getElementsByTagName('ul')[0],
+     		this.lis=this.uls.getElementsByTagName('li');
+     		console.log(this.lis)
+     	}
+     	init.prototype.fn=function(){
+     		var timer=null,that=this;
+     		function lunbo(){
+     			clearInterval(timer);
+     			timer=setInterval(function(){
+     				if(that.uls.offsetLeft<=that.lis[0].offsetWidth){
+     					clearInterval(timer)
+     					that.uls.style.marginLeft=0
+     					that.uls.appendChild(that.lis[0])
+     				}else{
+     					var speed=(500+that.uls.offsetLeft)/7
+     					speed=speed>0?Math.ceil(speed):Math.floor(speed)
+     					that.uls.style.margin=that.uls.offsetLeft-speed+'px'
+     				}
+     			},30)
+     		}
+     		setInterval(lunbo,2000)
+     	}
+     	var $=new init()
+     	$.fn()
+	</script>
+</body>
+</html>
