@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#box{
+			width:500px;
+			height:500px;
+			background:pink;
+			margin:50px auto;
+			position: relative;
+		}
+		#box #small{
+			width:100px;
+			height: 100px;
+			background:red;
+			line-height: 100px;
+			text-align: center;
+			font-size: 14px;
+			color:#fff;
+			position: absolute;
+			left:10px;top:10px;
+		}
+		#box #small #pd{
+			height:30px;
+			text-align: center;
+			font-size: 18px;
+			background:green;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="small">
+		
+		</div>
+	</div>
+	<script>
+		function Init(){
+			this.small=document.getElementById('small'),
+			this.ps=document.getElementById('ps'),
+			this.X=0,
+			this.Y=0,
+			this.fn()
+		}
+		//获取鼠标按下时的坐标
+		Init.prototype.fn=function(){
+				var that=this;
+				this.small.onmousedown=function(e){
+					var Ps=e||window.event;
+					that.X=Ps.clientX-that.small.offsetLeft,
+					that.Y=Ps.clientY-that.small.offsetTop;
+					that.small.innerHTML=that.X+','+that.Y
+						that.Darg()
+				}
+				this.small.onmouseup=function(){
+					document.onmousemove=null;
+				}
+		}
+		Init.prototype.Darg=function(){
+			var that=this;
+			document.onmousemove=function(e){
+				var Pf=e||window.event;
+				that.small.style.left=Pf.clientX-that.X+'px';
+				that.small.style.top=Pf.clientY-that.Y+'px';
+			}
+		}
+		// new Init()
+		function newBigs(bigId){
+			this.boxs=document.getElementById(bigId), 
+			Init.call(this)
+		}
+		if(Object.create){
+			newBigs.prototype=Object.create(Init.prototype)
+		}else{
+			function F(){}
+			F.prototype=Init.prototype
+			newBigs.prototype=new F();
+		}
+		newBigs.prototype.Darg=function(){
+			var that=this;
+			document.onmousemove=function(e){
+				var Pf=e||window.event;
+				that.small.style.left=Pf.clientX-that.X+'px';
+				that.small.style.top=Pf.clientY-that.Y+'px';
+				var maxW=that.boxs.offsetWidth-that.small.offsetWidth,
+					maxH=that.boxs.offsetHeight-that.small.offsetHeight;
+					if(that.small.offsetLeft<0)that.small.style.left=0;
+        			if(that.small.offsetLeft>maxW)that.small.style.left=maxW+'px';
+			        if(that.small.offsetTop<0)that.small.style.top=0;
+			        if(that.small.offsetTop>maxH)that.small.style.top=maxH+'px';
+			}
+		}
+
+		new newBigs("box");
+	</script>
+</body>
+</html>
