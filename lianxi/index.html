@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" placeholder="请输入秒数" id='dec'>
+	<button id="btn">确定</button> 
+	<div id="box">5</div>
+	<script>
+	var btn=document.getElementById('btn'),
+		box=document.getElementById('box'),
+		dec=document.getElementById('dec');
+				btn.onclick=function(){
+			var hao=parseInt(dec.value);
+				var time=setInterval(function(){
+					if(hao==0){
+						box.innerHTML=hao--;
+					}else{
+						clearInterval(time);
+					}
+				},1000)
+		}
+
+	//编写js函数，用于计算a+(a-1)+(a-2)+….+1的和
+		function sum1(a){
+			var sum = a;
+			for(var i=a; i >= 1; i--){
+				sum += (i-1);
+			}
+			return sum;
+		}
+			// alert(sum1(3));
+
+//编写js函数，用于获得输入参数的后缀名，如输入abc.txt，返回.txt
+			function getSuffix(filename){
+   				var dotLast = filename.lastIndexOf(".");
+				   if(dotLast==-1){
+					return "文件名格式不正确";
+				   }else{
+					return filename.substr(dotLast);
+				   }
+				}
+				// alert( getSuffix("a.jpeg") );
+
+			var i=2;
+			for(var i=0,j=0;i<5;i++){
+				// console.log(i);//打印结果是 0,1,2,3,4,
+			}
+			// console.log(i);//打印结果是 5
+
+			var a=(1&&2&&5)||3;
+			console.log(a);//打印结果为5
+
+			var a=[1,'yes',3],
+				b=[];
+				for(var i=0;i<a.length;i++){
+					b.push(a[i]);
+				}
+				console.log(b)
+
+
+
+	</script>
+</body>
+</html>
