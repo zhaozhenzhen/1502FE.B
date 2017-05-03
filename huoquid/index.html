@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">晚安！老王同志！</div>
+	<div class="action">zhaozhen</div>
+	<div class="action">wangtao</div>
+	<div class="action">zhaoshuying</div>
+	<script>
+		function colorName(style,value,index){
+			var action=document.querySelectorAll('.action')
+			return action[index].style[style]=value;
+		}
+		colorName('background','red',0)
+		function getId(ele){
+			return document.getElementById(ele);
+		}
+		console.log(getId('box'.innerHTML))
+	</script>
+</body>
+</html>
