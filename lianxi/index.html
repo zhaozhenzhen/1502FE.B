@@ -180,6 +180,22 @@
 				// }
 				// parse('https://www.baidu.com/s?ie=UTF-8&wd=vue')
 
+
+
+
+
+				//数组的反转
+				function revers(arr){
+					for(var i=0;i<arr.length/2;i++){
+						var temp=arr[i];
+						arr[i]=arr[arr.length-i-1];
+						arr[arr.length-i-1]=temp;
+					}
+				}
+				var arr=['abc',1,5,6];
+				revers(arr);
+				console.log(arr)
+
 	</script>
 </body>
 </html>

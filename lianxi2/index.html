@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table id="tab">
+		<tr>
+			<td>第一个单元格</td>
+			<td>第二个单元格</td>
+		</tr>		
+	</table>
+	<input type="button" id="btn" value="改变">
+
+
+	<form action="index.php">
+		<input type="text" name="txt" id="txt" value="abc"/>
+	</form>
+	<form action="">
+		<select name="" id="select">
+			<option value="1">一</option>
+			<option value="2">二</option>
+			<option value="2">三</option>
+		</select>		
+	</form>
+	<script>
+	var a=parseInt('11',2);
+	var b=parseInt('02',2);
+	var c=parseInt('09/08/2009');
+	console.log(a)
+	console.log(b)
+	console.log(c)//结果是3，0，9
+
+
+	
+		var select = document.getElementById('select');
+		select.onchange=function(){
+			console.log(this.options[this.selectedIndex].text)
+		}
+
+		//失去焦点时，数据发送给后台
+	var from =document.forms[0];
+	var input=document.getElementById('txt');
+	input.onblur=function(){
+		from.submit()
+	}
+
+	//点击按钮的时候，实现td值得切换
+	var btn=document.getElementById('btn');
+	btn.onclick=function(){
+		var x=document.getElementById('tab').rows[0].cells[0].innerHTML,
+			y=document.getElementById('tab').rows[0].cells[1].innerHTML;
+			document.getElementById('tab').rows[0].cells[0].innerHTML=y;
+			document.getElementById('tab').rows[0].cells[1].innerHTML=x;
+	}
+
+
+	
+
+		// var xhr=new XMLHttpRequest()
+		// if(window.XMLHttpRequest){
+		// 	var xhr=new XMLHttpRequest()
+		// }else{
+		// 	var xhr=new ActiveObject('Microsoft XMLHTTP')
+		// }
+		// // xhr.open('get',url,false);
+		// xhr.send()//括号中有两个参数，如果是get的方式，默认是null，若是post的话，括号里是给服务器传递的参数，参数的格式{"参数":参数值,"参数":参数值}
+		// xhr.onreadystatechange=function(){
+		// 	if(xhr.readyState==4){
+		// 		if(xhr.status==200){
+		// 			var requle=xhr.resposeText
+		// 		}
+		// 	}
+		// 	//若是post的话，必须设置请求头，
+		// 	xhr.setRequestHeader('contentType','application/x-www-from-urlencode');
+		// }
+
+		//setTimeout和setInterval的作用和区别
+		//setTimeout是超时调用，也就是说在什么时间以后干什么事
+		//setInterval是间歇调用，表示间隔一定的时间反复的执行某些操作，知道clearInterval()被调用或是关闭	
+
+		//求一个字符串的字节的长度
+		function GetBytes(str){
+
+        var len = str.length;
+
+        var bytes = len;
+
+        for(var i=0; i<len; i++){
+
+            if (str.charCodeAt(i) > 255) bytes++;
+
+        }
+
+        return bytes;
+
+    }
+
+		alert(GetBytes("你好,as"));
+
+//数组翻转1
+ var arr=["a",'b','c','d','e','f','g'],
+ 	str=[];
+ 	function fun(num){
+ 		for(var i=num.length-1;i>=0;i--){
+ 			str.push(num[i])
+ 		}
+ 		return str
+ 	}
+ 	console.log(fun(arr))
+
+//数组翻转2
+// var arrs=["a",'b','c','d','e','f','g'],
+//  	strs=[];
+// function fun(num){
+// 	for(var i=0;i<num.length;i++){
+// 		strs.unshift(num[i])
+// 	}
+// 	return strs
+// }
+// console.log(fun(arrs))
+
+
+			addEvent:function(element,type,handle){
+				if(element.addEvenetListener){
+					element.addEvenetListener(type,handle,false)
+				}else if(element.attachEvent){
+					element.attachEvent('on'+type,function(){
+						handle.call(element)
+					})
+				}else{
+					element['on'+type]=handle
+				}
+			}
+
+			//移除事件
+
+			removeEvent:function(element,type,handle){
+				if(element.removeEventListener){
+					element.removeEventListener(type,handle,false)
+				}else if(element.datachEvent){
+					element.datachEvent('on'+type,handle)
+				}else{
+					element['on'+type]=null
+				}
+			}
+
+
+			//阻止事件
+
+
+			stopPropagation:function(ev){
+				if(ev.stopPropagation){
+					ev.stopPropagation()
+				}else{
+					ev.cancelBubble=true;
+				}
+			}
+
+
+			//取消事件的默认行为
+
+
+			preventDefault:function(event){
+				if(event.preventDefault){
+					event.preventDefault();
+				}else{
+					event.returnValue=false;
+				}
+			}
+
+			//获取事件目标
+			getTarget:function(event){
+				return event.target||event.srcElement;
+			}
+
+
+			//获取event对象的引用，取到事件的所有信息，确保随时能使用event 
+
+				getEvent:function(e){
+					var ev=e||window.event;
+					if(!ev){
+						var c=this.getEvent.caller;
+						while(c){
+							ev=c.arguments[0];
+							if(ev&&Event==ev.constructor){
+								break;
+							}
+							c=c.caller
+						}
+					}
+					return ev
+				}
+
+
+				//js数组去重
+
+				
+
+		</script>
+</body>
+</html>
