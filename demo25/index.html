@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>级联菜单</title>
+</head>
+<body>
+	<select name="" id=""></select>
+	<select name="" id=""></select>
+	<select name="" id=""></select>
+	<select name="" id=""></select>
+
+
+
+	<script src="data.js"></script>
+	<script>
+			var sel=document.getElementsByTagName('select');
+			console.log(datasrc.ObjectType.option[0].option)
+			for(var i=0;i<datasrc.localArea.length;i++){
+				var op=new Option(datasrc.localArea[i].name)
+					sel[0].add(op)
+			}
+			for(var i=0;i<datasrc.localArea[0].option.length;i++){
+				var op=new Option(datasrc.localArea[0].option[i].name)
+					sel[1].add(op)
+			}
+			sel[0].onchange=function(){
+				sel[1].options.length=0;
+				var index=sel[0].selectedIndex;
+				for(var i=0;i<datasrc.localArea[index].option.length;i++){
+					var op=new Option(datasrc.localArea[index].option[i].name)
+					sel[1].add(op)
+				}
+			}
+			for(var i=0;i<datasrc.ObjectType.option.length;i++){
+				var op=new Option(datasrc.ObjectType.option[i].text)
+				sel[2].add(op)
+			}
+			for(var i=0;i<datasrc.ObjectType.option[0].option.length;i++){
+				var op=new Option(datasrc.ObjectType.option[0].option[i].text)
+				sel[3].add(op)
+			}
+			sel[2].onchange=function(){
+				sel[3].options.length=0;
+				var index=sel[2].selectedIndex;
+				for(var i=0;i<datasrc.ObjectType.option[index].option.length;i++){
+					var op=new Option(datasrc.ObjectType.option[index].option[i].text)
+					sel[3].add(op)
+				}
+			}
+	</script>
+</body>
+</html>
