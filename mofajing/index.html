@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+ 		#box{
+ 			width:200px;
+ 			height:200px;
+ 			float:left;
+ 			cursor:pointer;
+ 		}
+ 		#box1{
+ 			float:left;
+ 			width:200px;
+ 			height:220px;
+ 		}
+ 		#box1 img{
+ 			margin-left:20px;
+ 			margin-top: 10px;
+ 			display:none;
+ 		}
+ 		#box #yi{
+ 			display:block;
+ 		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="img/m1.png" alt="">
+		<img src="img/m2.png" alt="">
+		<img src="img/m3.png" alt="">
+		<img src="img/m4.png" alt="">
+		<img src="img/m5.png" alt="">
+		<img src="img/m6.png" alt="">
+	</div>
+	<div id="box1">
+		<img src="img/m1.jpg" alt="" id="yi">
+		<img src="img/m2.jpg" alt="">
+		<img src="img/m3.jpg" alt="">
+		<img src="img/m4.jpg" alt="">
+		<img src="img/m5.jpg" alt="">
+		<img src="img/m6.jpg" alt="">
+	</div>
+	<script>
+		var arr=document.getElementById('box').getElementsByTagName('img');
+		var brr=document.getElementById('box1').getElementsByTagName('img');
+
+
+
+		for(var i=0;i<arr.length;i++){
+			arr[i].index=i;
+			arr[i].onmouseover=function(){
+				for(var j=0;j<arr.length;j++){
+					brr[j].style.display='none'
+				}
+				brr[this.index].style.display='block';
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
