@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str='cloucccccchen';
+		var find='c';
+		var reg=new RegExp(find,'g');
+		var c=str.match(reg);
+		console.log(c.length)
+
+		var a = {
+		    user:"追梦子",
+		    fn:function(){
+		        console.log(this.user);
+		    }
+		}
+		var b = a.fn;
+		console.log(b)
+		b.bind(a);
+		console.log(b)
+
+
+		var a = {
+		    user:"追梦子",
+		    fn:function(){
+		        console.log(this.user);
+		    }
+		}
+		var b = a.fn;
+		var c = b.bind(a);
+		console.log(c);
+
+		var x = 10,
+			obj = {
+					x:20,
+					getX:function(x){
+						console.log(this.x)
+					}
+					};
+			obj.getX.call(null);
+       //隐式类型转换
+			var   str= '012.345 '; 
+			var   x   =   str-0; 
+					x   =   x*1;
+					console.log(x)
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#box{
+			width:200px;
+			height:200px;
+			background:red;
+			position: absolute; 
+			left:50%;
+			top:50%;
+			margin-left:-100px;
+			margin-top: -100px;
+		}
+	</style>
+
+</head>
+<body>
+	<div>
+		<div id="box">
+		
+	</div>
+	</div>
+	
+	<script>
+			//1:列出10个html块元素和行内元素，并简述块和行内的区别
+            //块元素
+           // p div h1-h6 table td tr dl form
+            //行内元素
+            //a b em span input i  img textarea strong
+            //区别；
+            //块元素支持宽和高，独占一行
+            //行内元素不支持宽和高，元素都是在一行显示，
+
+            //写出div#box水平垂直居中的样式
+
+            function getOddNumber(){
+            	for(var i=0;i<100;i++){
+            		if(i%2==1){
+            			document.write(i);
+            		}
+            	}
+            }
+            getOddNumber()
+
+            //编写js函数，计算a+(a-1)+(a-2)+..+1的和；
+            function shuml(a){
+            	var sum=a;
+            	for(var i=a;i>=1;i--){
+            		sum+=(i-1)
+            	}
+            	return sum;
+            }
+            // console.log(shuml(10));
+
+
+            function sunm2(a){
+            	if(a==1){
+            		return 1;
+            	}else{
+            		return a+sunm2(a-1);
+            	}
+            } 
+            // console.log(sunm2(5))
+
+            function gdotLast(filenname){
+            	var dotLast=filenname.lastIndexOf('.');
+            	if(dotLast==-1){
+            		return '文件名格式不正确'
+            	}else{
+            		return filenname.substr(dotLast)
+            	}
+            }
+            // console.log(gdotLast('index.html'))
+
+          //通过ajax异步获取数据，成功打印出ok，失败打印fali
+            // $.ajax(){
+            // 	url:'data.json',
+            // 	dataType:'json',
+            // 	data:'name=user&age=20',
+            // 	success:function(data){
+            // 		console.log('ok')
+            // 	},
+            // 	error:function(){
+            // 		console.log('fail')
+            // 	}
+            // }
+            //编写php程序，实现将字符串拆分
+            // $str='a|b|c|d';
+            // $exp=explode('|',$str);
+            // for(var i=0;i<count($exp);i++){
+            // 	echo $exp[i].'<br/>'
+            // }
+
+            //向后台同步发送数据
+            // xhr.open('post','index.php',false);
+            // xhr.send('name=user&age=2');
+
+            //echo date('y-m-d h:i:s')
+
+
+            	//向数据库中插入一条数据
+            	// insert into User(name,tel,content,date)values('xiaozhao','12343039669','hello','2017/5/23');
+            	//更新数据
+            	// updata user set date=now() where name='xiaozhang';
+            	//删除 
+            	// delete from user where name='xiaowang';
+            	//两种算法实现打印5的倍数
+            	function sum(end){
+            		for(var i=0;i<=end;i++){
+            			if(i%5==0){
+            				console.log(i)
+            			}
+            		}
+            	}
+            	sum(50)
+            	function sum(end){
+            		for(var i=5;i<=end;i+=5){
+            			console.log(i)
+            		}
+            	}
+            	sum(100)
+
+            	//求二维数组的和
+            	// function sum(arr){
+            	// 	var num=0;
+            	// 	for(var i=0;i<arr.length;i++){
+            	// 		for(var j=0;j<arr[i].length;j++){
+            	// 			num+=arr[i][j]
+            	// 		}
+            	// 	}
+            	// 	return num
+            	// }
+            	// sum(30)
+                  //取10-100之间的随机数。
+                     var arr=[];
+            function fun(min,max,a){
+               for(var i=1;i<=a;i++){
+               var ran=Math.floor(Math.random()*(max-min+1)+min);
+               if(arr.indexOf(ran)==-1){
+                     arr.push(ran);
+               }else{
+                     i--
+               }
+               arr.sort(function(a,b){return(a-b)})
+            }
+            return arr
+      }
+            
+         console.log(fun(10,100,10))
+
+         //使用构造函数和原型组合方法；创建一个对象代表学生；学生的主要属性：姓名，年龄，朋友(3个)调用
+         function object(name,age,friend){
+            this.name=name;
+            this.age=age;
+            this.friend=friend;
+         }
+         object.prototype.play=function(){
+            alert('足球')
+         }
+         var s=new object('zhaozhen','baomi',['li','tao','hua'])
+         console.log(s.play())
+         console.log(s.name)
+
+         //根据时间段显示
+            var data=new Date;
+            var fullyear=data.getFullYear(),
+                month=data.getMonth(),
+                data=data.getDate();
+             // day=data.getDay();
+
+
+            var str='helllllo';
+            var find='l';
+            var reg=new RegExp(find,'g');
+            var c=str.match(reg);
+            alert(c?c.length:0)
+
+
+            function login(username,password){
+                  if(username==='admit'&&password==='123456'){
+                        alert('成功');
+                  }
+            }
+            //转换驼峰形式
+            function toComelCase(arr){
+                  var str=arr.split('-'),
+                      subStr=str[0];
+                      for(var i=1;i<str.length;i++){
+                        subStr+=str[i].substr(0,1).toUpperCase()+str[i].substr(1);
+                      }
+                      return subStr;
+            }
+           console.log(toComelCase('border-left-color')) ;
+
+           
+
+
+	</script>
+</body>
+</html>

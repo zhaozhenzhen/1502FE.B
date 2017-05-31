@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<button id="btn">播放/暂停</button>
+		<button id="btn1">放大</button>
+		<button id="btn2">缩小</button>
+		<button id="btn3">普通</button><br>
+		<video src="" width="200" controls id="video1">
+			<source src=""></source>
+			<source src=""></source>
+		</video>
+	</div>
+	<script>
+		var btn=document.getElementById('btn'),
+			btn1=document.getElementById('btn1'),
+			btn2=document.getElementById('btn2'),
+			btn3=document.getElementById('btn3'),
+			myvideo=document.getElementById("video1");
+			btn.onclick=function(){
+					if(myvideo.paused){
+						myvideo.play()
+					}else{
+						myvideo.pause()
+					}
+			}
+			var foo={
+				bar:function(){
+					return this.bar;
+				},
+				bar:1
+			};
+			var a=(function(){
+				arguments.bar=25;
+				return typeof arguments[0]();
+			})(foo.bar)
+	</script>
+</body>
+</html>

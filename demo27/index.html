@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			margin:0;
+		}
+		#box{
+			width:600px;
+			height:100px;
+			border:1px solid #ccc;
+			position: relative;
+			overflow: hidden;
+			margin:20px auto;
+		}
+		#box ul{
+			list-style: none;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		#box ul li{
+			width:200px;
+			height:100px; 
+			background:green;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>111</li>
+			<li style="background:red">222</li>
+			<li style="background:pink">333</li>
+		</ul>
+	</div>
+	<script>
+			function Dang(){
+				this.uls=document.getElementsByTagName('ul')[0];
+				this.lis=document.getElementsByTagName('li');
+				this.tims=null;
+				this.one();
+				this.bind();
+
+			}
+			Dang.prototype.one=function(){
+				for(var i=0;i<3;i++){
+					var newli=this.lis[i].cloneNode(true);
+					this.uls.appendChild(newli);
+				}
+					this.uls.style.width=this.lis[0].offsetWidth*this.lis.length+'px';
+					console.log(this.uls.style.width)
+			}
+			Dang.prototype.bind=function(){
+				var that=this;
+					this.tims=setInterval(function(){
+						that.auto()
+					},100);
+
+			}
+			Dang.prototype.auto=function(){
+					if(this.uls.offsetLeft>-this.uls.offsetWidth/2){
+						console.log(this.uls.offsetLeft-1)
+						this.uls.style.left=this.uls.offsetLeft-1+'px';
+					}
+					this.uls.style.left=0;
+
+			}
+			var p=new Dang();
+
+
+
+			//判断js对象是数组；
+				// function array(o){
+				// 	if(type o==='object'){
+				// 		return object.prototype.toString.call(o)==='[object Array]';
+				// 	}
+				// 	return false;
+				// }
+	</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+	ul,ol{
+		list-style: none;
+	}
+		#box{
+			position: relative;
+		}
+		#box img{
+				width:350px;
+				height:400px;
+				position: absolute;
+				left:50%;
+				top:50%;
+				margin-left:-175px;
+		}
+		#uls{
+			position: absolute;
+			left:300px;
+			top:350px;
+		}
+		#uls li{
+			width:40px;
+			height:40px;
+			border-radius: 100%;
+			background:pink;
+			text-align: center; 
+			line-height: 40px;
+			float:left;
+			margin:2px;		
+		}
+		#left,#right{
+			font-size: 40px;
+			color:#fff;
+		}
+		#left{
+			position: absolute;
+			left:300px;
+			top:200px;
+		}
+		#right{
+			position: absolute;
+			right:300px;
+			top:200px;
+		}
+		.on{
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="images/5.jpg" alt="">
+		<img src="images/1.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+	</div>
+	<div id="left"><</div>
+	<div id="right">></div>
+	<ul id="uls">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	<script>
+		var box=document.getElementById('box'),
+			img=document.getElementsByTagName('img'),
+			left=document.getElementById("left"),
+			right=document.getElementById('right'),
+			uls=document.getElementsByTagName('ul')[0],
+			lis=uls.getElementsByTagName('li'),
+			k=0;
+
+				left.onclick=function(){
+					for(var i=0;i<img.length;i++){
+						img[i].style.display='none';
+						lis[i].style.background=''
+					}
+					img[k].style.display='block';
+					lis[k].style.background='red'
+					k--;
+					if(k<0) k=img.length-1;
+				}
+				right.onclick=function(){
+						arr()
+				}
+				for(var i=0;i<lis.length;i++){
+					 lis[i].index=i;
+					lis[i].onclick=function(){						
+						for(var j=0;j<lis.length;j++){
+							lis[j].style.background=''
+							img[j].style.display='none'
+						}
+							lis[this.index].style.background='red'
+							img[this.index].style.display='block';
+							k++
+					}
+				}	
+				function arr(){
+					for(var i=0;i<img.length;i++){
+						img[i].style.display='none';
+						lis[i].style.background=''
+					}
+					img[k].style.display='block';
+					lis[k].style.background='red'
+					k++;
+					if(k>img.length-1) k=0;
+				}
+				
+			var timer=setInterval(arr,1000)
+	</script>
+</body>
+</html>
